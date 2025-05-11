@@ -1,0 +1,19 @@
+{
+  "title1": "Blazer",
+  "description1": "A pink blazer typically exudes a vibrant and stylish aura.",
+  "set": "Settings",
+  "load": "Load",
+  "signIn": "Sign In",
+  "Setting": "Setting",
+  "NotMember": "Not a member yet?",
+  "signUp": "Sign Up",
+  "password": "Password",
+  "email": "Email",
+  "username": "Username",
+  "resetPassword": "Reset Password",
+  "account": "Do you have an account?",
+  "newPassword": "New Password",
+  "forgetPasswordSubtitle": "Your new password must be different from perviously used password",
+  "confirmPassword": "confirm Password",
+  "CreateNewPassword": "Create New Password"
+}
