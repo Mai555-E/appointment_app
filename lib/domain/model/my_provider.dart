@@ -4,7 +4,8 @@ class MyProvider extends ChangeNotifier {
   late DateTime? focusDate = DateTime.now();
   late DateTime? selectDate = DateTime.now();
   late String? doctorName = '', doctorField = '';
-  late final doctor;
+  IconData icons = Icons.visibility;
+  bool obscure = true;
 //
 
   late String? username = '', userEmail = '', userPhone = '';
@@ -18,6 +19,14 @@ class MyProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+//
+  void changeIcon() {
+    icons = icons == Icons.visibility ? Icons.visibility_off_outlined : Icons.visibility;
+    obscure = !obscure;
+    notifyListeners();
+  }
+
+//
   void choiceTime(String choice) {
     selected = choice;
     notifyListeners();
@@ -39,12 +48,6 @@ class MyProvider extends ChangeNotifier {
     username = userName;
     userEmail = email;
     userPhone = phone;
-
-    notifyListeners();
-  }
-
-  void getCorrectDoctor(List<Map<String, dynamic>> info) {
-    doctor = info;
 
     notifyListeners();
   }

@@ -78,20 +78,4 @@ class HaveAnAccount extends StatelessWidget {
   }
 }
 
-class OTP extends StatelessWidget {
-  const OTP({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox.square(
-      dimension: MediaQuery.sizeOf(context).width / 7,
-      child: TextField(
-        textAlign: TextAlign.center,
-        keyboardType: TextInputType.number,
-        style: const TextStyle(fontSize: 17),
-        decoration: const InputDecoration(hintText: "-"),
-        inputFormatters: [LengthLimitingTextInputFormatter(1)],
-      ),
-    );
-  }
-}
