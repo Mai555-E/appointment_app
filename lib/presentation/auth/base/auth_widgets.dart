@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +13,7 @@ class TitleAndSubtitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(StringTranslateExtension(title).tr(), style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w500)),
+        Text((title), style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w500)),
         const SizedBox(height: 10),
         Text(subTitle, textAlign: TextAlign.center, style: const TextStyle(color: Colors.grey)),
       ],
@@ -49,9 +48,9 @@ class SocialIcons extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          IconButton.outlined(onPressed: () {}, icon: const Icon(Icons.apple_rounded, color: Colors.black, size: 50,)),
+          IconButton.outlined(onPressed: () {}, icon: const Icon(Icons.apple_rounded, color: Colors.black, size: 50)),
           IconButton.outlined(onPressed: () {}, icon: Image.asset(AppAssets.googleIcon, width: 70)),
-          IconButton.outlined(onPressed: () {}, icon: const Icon(Icons.facebook, color: Colors.blue, size: 50,)),
+          IconButton.outlined(onPressed: () {}, icon: const Icon(Icons.facebook, color: Colors.blue, size: 50)),
         ],
       ),
     );
@@ -76,5 +75,3 @@ class HaveAnAccount extends StatelessWidget {
     );
   }
 }
-
-

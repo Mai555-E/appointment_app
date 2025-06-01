@@ -2,8 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../resources/app_colors.dart';
-import '../../../../resources/app_constants.dart';
+import '../../../resources/app_colors.dart';
+import '../../../resources/app_constants.dart';
 
 class CarouselSliderWithDots extends StatelessWidget {
   final RxInt currentIndex;

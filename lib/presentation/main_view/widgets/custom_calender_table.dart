@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-import '../../../../domain/model/my_provider.dart';
+import '../../../domain/model/my_provider.dart';
 
 class CustomCalenderTable extends StatelessWidget {
   const CustomCalenderTable({super.key});

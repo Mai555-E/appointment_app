@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../domain/model/supabase_model.dart';
-import '../../../widgets/leading_app_bar.dart';
+import '../../../domain/model/supabase_model.dart';
+import '../../widgets/leading_app_bar.dart';
 import 'details_screen.dart';
 
 class MyWhishListPage extends StatelessWidget {

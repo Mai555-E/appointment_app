@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../resources/app_colors.dart';
-import '../../../../resources/app_constants.dart';
+import '../../../resources/app_colors.dart';
+import '../../../resources/app_constants.dart';
 
 class LocationAndNotification extends StatelessWidget {
   const LocationAndNotification({super.key});

@@ -2,7 +2,7 @@ import '../../../domain/model/my_provider.dart';
 import '../../../domain/model/saving_appointment.dart';
 import 'package:provider/provider.dart';
 
-import '../pages/widgets/custom_calender_table.dart';
+import '../widgets/custom_calender_table.dart';
 import '../../resources/app_colors.dart';
 import '../../resources/app_constants.dart';
 import '../../widgets/leading_app_bar.dart';

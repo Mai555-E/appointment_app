@@ -1,44 +1,53 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+
+import '../../resources/routes.dart';
 
 class SupabaseAuth {
   static final _supabase = Supabase.instance.client;
 
-  static Future<bool> signUp({required String email, required String password, required String username}) async {
+  static Future<void> signUp(
+      {required String email, required String password, required String username, required BuildContext context}) async {
     try {
-      final response = await _supabase.auth.signUp(
-        email: email,
-        password: password,
-        data: {'first_name': username}
-      );
+      final response = await _supabase.auth.signUp(email: email, password: password, data: {'first_name': username});
 
       if (response.user != null) {
-        return true; 
-      } else {
-        
-        return false;
+        Get.toNamed(NamedRoutes.signInScreen);
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Sign up success")));
       }
     } on AuthException {
-      return false;
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("sign up Failed")));
     } catch (e) {
-      return false;
+      print(e.toString());
     }
   }
 
-  static Future<bool> signIn({required String email, required String password}) async {
+  static Future<void> signIn({required String email, required String password, required BuildContext context}) async {
     try {
       final response = await _supabase.auth.signInWithPassword(email: email, password: password);
 
       if (response.user != null) {
-        return true; 
-      } else {
-        return false;
+        Get.offNamed(NamedRoutes.mainView);
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("login success")));
       }
     } on AuthException catch (e) {
       print(e.message);
-      return false;
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("login Failed , check your password or email")));
+
+     
     } catch (e) {
       print(e);
-      return false;
     }
   }
 }
+
+
+/****
+ * if (result) {
+                          
+                        } else {
+                        }
+ * 
+ *  
+ */

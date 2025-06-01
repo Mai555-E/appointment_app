@@ -1,4 +1,4 @@
-import 'package:doctor_appointment_app/presentation/resources/routes.dart';
+import '../../presentation/resources/routes.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 

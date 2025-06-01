@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 import '../../domain/model/my_provider.dart';
-import '../resources/routes.dart';
 import '../widgets/widgets.dart';
 import 'base/auth_widgets.dart';
 import 'base/supabase_auth.dart';
@@ -54,14 +52,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ElevatedButton(
                     onPressed: () async {
                       if (formKey.currentState!.validate()) {
-                        final bool result = await SupabaseAuth.signUp(email: email.text, password: password.text, username: userName.text);
-                          context.read<MyProvider>().getUserInfo(userName.text, email.text, phone.text);
-                        if (result) {
-                          Get.toNamed(NamedRoutes.signInScreen);
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("login success")));
-                        } else {
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("login Failed")));
-                        }
+                        context.read<MyProvider>().getUserInfo(userName.text, email.text, phone.text);
+                        await SupabaseAuth.signUp(email: email.text, password: password.text, username: userName.text, context: context);
                       }
                     },
                     child: const Text("Sign Up")),

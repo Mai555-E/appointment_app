@@ -20,7 +20,18 @@ class AppConstants {
   ];
 
 //
+static List<String>doctorNamedSuggestion= [
+    "Dr. Sarah Johnson",
+    "Dr. Michael Chen",
+    "Dr. Emily Rodriguez",
+    "Dr. James Wilson",
+    "Dr. Priya Patel",
+    "Dr. David Kim",
+    "Dr. Olivia  Smith",
+    "Dr. Sophia Lee"
+  ];
 
+//
   static List<({String time})> timeSlots = [
     (time: '8:00 AM'),
     (time: '8:30 AM'),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../domain/model/supabase_model.dart';
-import '../../../../resources/app_colors.dart';
+import '../../../../domain/model/supabase_model.dart';
+import '../../../resources/app_colors.dart';
 
 class ProductCardsHome extends StatelessWidget {
   const ProductCardsHome({super.key});

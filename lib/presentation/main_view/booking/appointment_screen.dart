@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../../resources/app_assets.dart';
 import '../../resources/app_colors.dart';
 import '../../resources/app_constants.dart';
-import '../pages/widgets/custom_calender_table.dart';
-import '../pages/widgets/custom_category_list.dart';
-import '../pages/widgets/custom_category_tile.dart';
-import '../pages/widgets/custom_search_bar.dart';
+import '../widgets/custom_calender_table.dart';
+import '../widgets/custom_category_list.dart';
+import '../widgets/custom_category_tile.dart';
+import '../widgets/custom_search_bar.dart';
 
 class AppointmentScreen extends StatelessWidget {
   const AppointmentScreen({super.key});

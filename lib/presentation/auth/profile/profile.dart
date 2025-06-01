@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../domain/model/my_provider.dart';
-import '../../../resources/app_colors.dart';
-import '../../../widgets/leading_app_bar.dart';
+import '../../../domain/model/my_provider.dart';
+import '../../resources/app_colors.dart';
+import '../../widgets/leading_app_bar.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});

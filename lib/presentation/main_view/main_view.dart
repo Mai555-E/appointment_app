@@ -1,12 +1,11 @@
-import 'package:doctor_appointment_app/presentation/main_view/payment/payment_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../resources/app_colors.dart';
 import '../resources/app_constants.dart';
 import 'booking/appointment_screen.dart';
-import 'pages/body/my_whish_list.dart';
-import 'pages/home/home_page.dart';
-import 'pages/profile/profile.dart';
+import 'body/my_whish_list.dart';
+import 'home/home_page.dart';
+import '../auth/profile/profile.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -22,7 +21,7 @@ class _MainViewState extends State<MainView> {
 
   static final List<Widget> _pages = [
     const HomePage(),
-    const PaymentScreen(),
+    const HomePage(),
     const MyWhishListPage(),
     const AppointmentScreen(),
     const ProfileScreen()

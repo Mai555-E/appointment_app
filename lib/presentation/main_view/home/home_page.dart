@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../resources/app_constants.dart';
+import '../../resources/app_constants.dart';
 import '../widgets/custom_category_list.dart';
 import '../widgets/custom_category_tile.dart';
 import '../widgets/home_widgets/carousel_slider_with_dots.dart';

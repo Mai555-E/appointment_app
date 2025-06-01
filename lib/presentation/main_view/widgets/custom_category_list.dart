@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../widgets/custom_circular_avatar_icons.dart';
+import '../../widgets/custom_circular_avatar_icons.dart';
 
 class CustomCategoryList extends StatelessWidget {
   final List<({String job, IconData icon})> services;

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../resources/app_colors.dart';
-import '../resources/routes.dart';
 import '../widgets/widgets.dart';
 import 'base/auth_widgets.dart';
 import 'base/supabase_auth.dart';
@@ -15,7 +13,7 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
- late final email, password;
+  late final email, password;
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -45,13 +43,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 ElevatedButton(
                     onPressed: () async {
                       if (formKey.currentState!.validate()) {
-                        final bool result = await SupabaseAuth.signIn(email: email.text, password: password.text);
-                        if (result) {
-                          Get.offNamed(NamedRoutes.mainView);
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("login success")));
-                        } else {
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("login Failed")));
-                        }
+                        await SupabaseAuth.signIn(email: email.text, password: password.text, context: context);
                       }
                     },
                     child: const Text("Sign In")),
