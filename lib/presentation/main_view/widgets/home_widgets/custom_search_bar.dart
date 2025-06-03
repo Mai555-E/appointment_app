@@ -1,5 +1,6 @@
-import 'package:doctor_appointment_app/presentation/resources/app_constants.dart';
 import 'package:flutter/material.dart';
+
+import '../../../resources/app_constants.dart';
 
 class CustomSearchBar extends StatefulWidget {
   const CustomSearchBar({super.key});

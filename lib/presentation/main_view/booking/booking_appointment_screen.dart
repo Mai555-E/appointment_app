@@ -1,20 +1,18 @@
-import '../../../domain/model/my_provider.dart';
-import '../../../domain/model/saving_appointment.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../widgets/custom_calender_table.dart';
 import '../../resources/app_colors.dart';
 import '../../resources/app_constants.dart';
 import '../../widgets/leading_app_bar.dart';
-import 'package:flutter/material.dart';
+import '../../../domain/model/my_provider.dart';
+import '../../../domain/model/saving_appointment.dart';
+import '../widgets/home_widgets/custom_calender_table.dart';
 
 class BookingAppointmentScreen extends StatelessWidget {
   const BookingAppointmentScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    String name = context.watch<MyProvider>().doctorName!;
-    String field = context.watch<MyProvider>().doctorField!;
-    int price = context.watch<MyProvider>().price!;
+    var provider = context.watch<MyProvider>();
 
     return Scaffold(
       appBar: LeadingAppBar(title: "Booking Screen"),
@@ -34,8 +32,12 @@ class BookingAppointmentScreen extends StatelessWidget {
                     height: 50,
                     child: ElevatedButton(
                         onPressed: () async {
-                          SavingAppointment.saveAppointment(context.read<MyProvider>().selected!,
-                              context.read<MyProvider>().focusDate!.toIso8601String(), name, field, price);
+                          SavingAppointment.saveAppointment(
+                              context.read<MyProvider>().selected!,
+                              context.read<MyProvider>().focusDate!.toIso8601String(),
+                              provider.doctorName!,
+                              provider.doctorField!,
+                              provider.price!);
                         },
                         child: Text("set appointment"))),
               ],

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import 'app_colors.dart';
 
@@ -87,5 +86,4 @@ class AppTheme {
 
   static ThemeMode currentMode = ThemeMode.light;
 
-  static void changeCurrentMode() => Get.changeThemeMode(currentMode = (currentMode == ThemeMode.dark) ? ThemeMode.light : ThemeMode.dark);
 }

@@ -43,11 +43,3 @@ class SupabaseAuth {
 }
 
 
-/****
- * if (result) {
-                          
-                        } else {
-                        }
- * 
- *  
- */

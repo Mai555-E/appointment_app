@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../body/my_whish_list.dart';
+import '../../body/my_whish_list.dart';
 
 class CustomCategoryTile extends StatelessWidget {
   final String title, subTitle;

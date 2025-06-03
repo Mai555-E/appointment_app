@@ -12,7 +12,7 @@ class AppConstants {
 
 //payment
 
-  static List<({IconData icon})> paymentIcons = [
+  static const PaymentIcons paymentIcons = [
     (icon: FontAwesomeIcons.ccVisa),
     (icon: FontAwesomeIcons.paypal),
     (icon: FontAwesomeIcons.ccAmex),
@@ -20,7 +20,7 @@ class AppConstants {
   ];
 
 //
-static List<String>doctorNamedSuggestion= [
+  static const DoctorNamedSuggestion doctorNamedSuggestion = [
     "Dr. Sarah Johnson",
     "Dr. Michael Chen",
     "Dr. Emily Rodriguez",
@@ -32,7 +32,7 @@ static List<String>doctorNamedSuggestion= [
   ];
 
 //
-  static List<({String time})> timeSlots = [
+  static const TimeSlots timeSlots = [
     (time: '8:00 AM'),
     (time: '8:30 AM'),
     (time: '9:00 AM'),
@@ -53,7 +53,7 @@ static List<String>doctorNamedSuggestion= [
     (time: '4:30 PM'),
     (time: '5:00 PM'),
     (time: '5:30 PM'),
-    (time: '6:30 PM')
+    (time: '6:00 PM')
   ];
 
   //
@@ -73,7 +73,7 @@ static List<String>doctorNamedSuggestion= [
     (job: "", icon: Icons.local_hospital)
   ];
 
-  static List<String> locations = [
+  static Locations locations = [
     'Cairo',
     'Alexandria',
     'Giza',
@@ -117,6 +117,11 @@ static List<String>doctorNamedSuggestion= [
   ];
 }
 
+typedef Locations = List<String>;
+typedef DoctorsImages = List<String>;
+typedef TimeSlots = List<({String time})>;
+typedef DoctorNamedSuggestion = List<String>;
+typedef PaymentIcons = List<({IconData icon})>;
 typedef DoctorJobs = List<({String job, IconData icon})>;
 typedef ServiceTypes = List<({String job, IconData icon})>;
 typedef NavigationData = List<({IconData icon, IconData iconFilled})>;

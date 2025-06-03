@@ -1,20 +1,20 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../domain/model/my_provider.dart';
-import '../../resources/app_colors.dart';
 import '../../resources/routes.dart';
-import '../widgets/body_widgets/custom_position_widgets.dart';
+import '../../resources/app_colors.dart';
+import '../../../domain/model/my_provider.dart';
 import '../widgets/body_widgets/details_card.dart';
+import '../widgets/body_widgets/custom_position_widgets.dart';
 
 class DetailsScreen extends StatelessWidget {
   final Map<String, dynamic> doctors;
   const DetailsScreen({super.key, required this.doctors});
   @override
   Widget build(BuildContext context) {
-  var docList = context.read<MyProvider>();
-  
+    var docList = context.read<MyProvider>();
+
     return Scaffold(
       appBar: AppBar(
           leading: IconButton(onPressed: () => Get.back(), icon: Icon(Icons.arrow_back_ios_new_rounded)),
@@ -36,11 +36,14 @@ class DetailsScreen extends StatelessWidget {
                       separatorBuilder: (_, __) => SizedBox(width: 30),
                       itemCount: 3)),
               SizedBox(height: MediaQuery.sizeOf(context).height / 3.5, child: _buildInfoWidget(context)),
-              ElevatedButton(onPressed: () =>{ 
-                docList.getDoctorName(doctors['name']),
-                docList.getDoctorField(doctors['specialization']),
-                docList.getDoctorDeposit(doctors['price']),
-                Get.toNamed(NamedRoutes.bookingAppointment)}, child: Text("Booking Appointment"))
+              ElevatedButton(
+                  onPressed: () => {
+                        docList.getDoctorName(doctors['name']),
+                        docList.getDoctorField(doctors['specialization']),
+                        docList.getDoctorDeposit(doctors['price']),
+                        Get.toNamed(NamedRoutes.bookingAppointment)
+                      },
+                  child: Text("Booking Appointment"))
             ],
           ),
         ),

@@ -39,13 +39,12 @@ class ProductCardsHome extends StatelessWidget {
 
                 // Product Name & Score
                 Row(
-                  //crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [Text(doctors[i]['specialization']), Text("\u{2B50} 4.9", style: TextStyle(color: Colors.grey))],
                 ),
 
                 // Price
-                Text(doctors[i]['working_days']),
+                Text(doctors[i]['working_days'])
               ],
             ),
           );

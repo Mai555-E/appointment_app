@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../widgets/home_widgets/custom_search_bar.dart';
 import '../../resources/app_constants.dart';
-import '../widgets/custom_category_list.dart';
-import '../widgets/custom_category_tile.dart';
-import '../widgets/home_widgets/carousel_slider_with_dots.dart';
-import '../widgets/home_widgets/custom_search_and_filter.dart';
-import '../widgets/home_widgets/location_and_notification.dart';
+import '../widgets/home_widgets/custom_category_list.dart';
+import '../widgets/home_widgets/custom_category_tile.dart';
 import '../widgets/home_widgets/product_cards_home.dart';
+import '../widgets/home_widgets/carousel_slider_with_dots.dart';
+import '../widgets/home_widgets/location_and_notification.dart';
 
 class HomePage extends StatelessWidget {
   static RxInt currentIndex = 0.obs;
@@ -22,14 +22,14 @@ class HomePage extends StatelessWidget {
           spacing: 10,
           children: [
             Padding(
-              padding: const EdgeInsets.all(18),
+              padding: const EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text("Location", style: TextStyle(color: Colors.grey)),
                   LocationAndNotification(),
                   const SizedBox(height: 10),
-                  CustomSearchAndFilter()
+                 SizedBox(width: 350,  child: CustomSearchBar())
                 ],
               ),
             ),

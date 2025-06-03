@@ -3,12 +3,12 @@ import 'package:get/get.dart';
 import '../auth/sign_in_screen.dart';
 import '../auth/sign_up_screen.dart';
 import '../main_view/main_view.dart';
-import '../splash_screen/splash_screen.dart';
 import '../auth/profile/profile.dart';
-import '../main_view/booking/appointment_screen.dart';
-import '../main_view/booking/confirmation_screen.dart';
+import '../splash_screen/splash_screen.dart';
 import '../main_view/body/details_screen.dart';
 import '../main_view/body/my_whish_list.dart';
+import '../main_view/booking/appointment_screen.dart';
+import '../main_view/booking/confirmation_screen.dart';
 import '../main_view/booking/booking_appointment_screen.dart';
 
 class NamedRoutes {
@@ -27,7 +27,6 @@ class NamedRoutes {
 
   //
   static const String mainView = "/mainView";
-  static const String bodyDetails = "/bodyDetails";
   static const String detailsScreen = "/detailsScreen";
 //
   static const String myWhishList = "/myWhishList";
@@ -35,13 +34,9 @@ class NamedRoutes {
   static const String bookingAppointment = "/bookingAppointment";
 
   // Profile Page
-  static const String profilePage = "/profilePage";
-
   static const String confirm = '/confirm';
-  static const String settingsScreen = "/settingsScreen";
-  static const String updateProfile = "/updateProfileScreen";
+  static const String profilePage = "/profilePage";
   //
-  static const String passwordManagerScreen = "/passwordManagerScreen";
 }
 
 class RouteGenerator {

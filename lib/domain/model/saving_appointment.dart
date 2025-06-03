@@ -1,8 +1,8 @@
-import 'package:doctor_appointment_app/domain/notification/local_notification_service.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../presentation/resources/routes.dart';
+import '../notification/local_notification_service.dart';
 import '../strip_payment/payment_manager.dart';
 
 class SavingAppointment {
