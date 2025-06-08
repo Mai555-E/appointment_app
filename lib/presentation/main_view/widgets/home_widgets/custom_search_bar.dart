@@ -16,22 +16,20 @@ class CustomSearchBar extends StatefulWidget {
 class _CustomSearchBarState extends State<CustomSearchBar> {
   late final SearchController controller;
   @override
-  void initState() => {controller = SearchController(), super.initState()};
+  void initState() => {super.initState(), controller = SearchController()};
   @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
+  void dispose() => {controller.dispose(), super.dispose()};
 
   @override
   Widget build(BuildContext context) {
     List<DoctorModel> doctors = context.read<MyProvider>().doctors;
     return SearchAnchor.bar(
+        searchController: controller,
         barBackgroundColor: WidgetStatePropertyAll(Colors.white),
         barShape: WidgetStatePropertyAll(StadiumBorder(side: BorderSide(style: BorderStyle.none))),
         barHintText: 'Search',
-        suggestionsBuilder: (context, controller) {
-          final query = controller.value.text.toLowerCase();
+        suggestionsBuilder: (context, searchController) {
+          final query = searchController.value.text.toLowerCase();
           final suggestion = doctors.where((doc) => doc.name.toLowerCase().contains(query));
           return suggestion.map((doc) {
             return ListTile(
@@ -39,8 +37,9 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
               leading: CircleAvatar(radius: 30, backgroundImage: AssetImage(doc.image)),
               subtitle: Text(doc.specialization),
               onTap: () {
+                searchController.closeView(doc.name);
+                searchController.clear();
                 Get.to(() => DetailsScreen(doctors: doc));
-                controller.closeView(doc.name);
               },
             );
           }).toList();
