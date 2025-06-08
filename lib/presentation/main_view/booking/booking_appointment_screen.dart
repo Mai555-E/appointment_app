@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../data/model/saving_appointment.dart';
+import '../../../domain/provider/my_provider.dart';
 import '../../resources/app_colors.dart';
 import '../../resources/app_constants.dart';
 import '../../widgets/leading_app_bar.dart';
-import '../../../domain/model/my_provider.dart';
-import '../../../domain/model/saving_appointment.dart';
 import '../widgets/home_widgets/custom_calender_table.dart';
 
 class BookingAppointmentScreen extends StatelessWidget {

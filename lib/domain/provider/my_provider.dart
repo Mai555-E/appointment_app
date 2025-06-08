@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 
+import '../../data/model/doctor_model.dart';
+
 class MyProvider extends ChangeNotifier {
+  late int? price = 0;
+  bool obscure = true;
+  //
+  String? selected = '10:30';
+  IconData icons = Icons.visibility;
+  //
   late DateTime? focusDate = DateTime.now();
   late DateTime? selectDate = DateTime.now();
   late String? doctorName = '', doctorField = '';
-  late int? price =0;
-  IconData icons = Icons.visibility;
-  bool obscure = true;
 //
-
+  late List<DoctorModel> _doctor = [];
   late String? username = '', userEmail = '', userPhone = '';
+
   //
-  String? selected = '10:30';
 
   void changeDateTime({DateTime? selectedDate, DateTime? focusedDate}) {
     focusDate = focusedDate;
@@ -33,30 +38,40 @@ class MyProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+//
   void getDoctorName(String? name) {
     doctorName = name;
 
     notifyListeners();
   }
 
+//
   void getDoctorField(String? field) {
     doctorField = field;
 
     notifyListeners();
   }
 
-  void getDoctorDeposit(int? deposit) {
-    price = deposit;
+//
+  void getDoctorDeposit(String? deposit) {
+    price = int.parse(deposit!);
 
     notifyListeners();
   }
 
-
+//
   void getUserInfo(String userName, String email, String phone) {
     username = userName;
     userEmail = email;
     userPhone = phone;
 
+    notifyListeners();
+  }
+  //
+
+  List<DoctorModel> get doctors => _doctor;
+  void setDoctorModelData(List<DoctorModel> newDoctor) {
+    _doctor = newDoctor;
     notifyListeners();
   }
 }

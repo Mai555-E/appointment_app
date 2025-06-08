@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../../resources/app_colors.dart';
 import '../../resources/routes.dart';
 
 class SupabaseAuth {
@@ -14,7 +15,7 @@ class SupabaseAuth {
 
       if (response.user != null) {
         Get.toNamed(NamedRoutes.signInScreen);
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Sign up success")));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Sign up success"), backgroundColor: AppColors.thirdColor,));
       }
     } on AuthException {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("sign up Failed")));
@@ -29,7 +30,7 @@ class SupabaseAuth {
 
       if (response.user != null) {
         Get.offNamed(NamedRoutes.mainView);
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("login success")));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("login success") , backgroundColor: AppColors.thirdColor));
       }
     } on AuthException catch (e) {
       print(e.message);

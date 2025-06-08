@@ -1,15 +1,15 @@
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../../domain/notification/local_notification_service.dart';
+import '../../domain/strip_payment/payment_manager.dart';
 import '../../presentation/resources/routes.dart';
-import '../notification/local_notification_service.dart';
-import '../strip_payment/payment_manager.dart';
 
 class SavingAppointment {
   static Future<void> saveAppointment(String date, String time, String name, String field, int price) async {
     final user = Supabase.instance.client.auth.currentUser;
     try {
-      final response = await Supabase.instance.client.from('appointments').insert(
+       await Supabase.instance.client.from('appointments').insert(
           {'user_id': user!.id, 'appointment_date': date, 'appointment_time': time, 'doctor_name': name, 'field': field, 'price': price});
 
       print(" Appointment saved successfully");

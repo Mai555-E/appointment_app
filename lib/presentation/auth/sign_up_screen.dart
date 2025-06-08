@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../domain/model/my_provider.dart';
+import '../../domain/provider/my_provider.dart';
 import '../widgets/widgets.dart';
 import 'base/auth_widgets.dart';
 import 'base/supabase_auth.dart';

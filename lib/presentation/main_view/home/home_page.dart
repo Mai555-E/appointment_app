@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../widgets/home_widgets/custom_search_bar.dart';
 import '../../resources/app_constants.dart';
+import '../widgets/home_widgets/carousel_slider_with_dots.dart';
 import '../widgets/home_widgets/custom_category_list.dart';
 import '../widgets/home_widgets/custom_category_tile.dart';
-import '../widgets/home_widgets/product_cards_home.dart';
-import '../widgets/home_widgets/carousel_slider_with_dots.dart';
+import '../widgets/home_widgets/custom_search_bar.dart';
 import '../widgets/home_widgets/location_and_notification.dart';
+import '../widgets/home_widgets/product_cards_home.dart';
 
 class HomePage extends StatelessWidget {
   static RxInt currentIndex = 0.obs;

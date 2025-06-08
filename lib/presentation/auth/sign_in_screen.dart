@@ -34,7 +34,7 @@ class _SignInScreenState extends State<SignInScreen> {
               children: [
                 const Padding(
                     padding: EdgeInsets.symmetric(vertical: 80),
-                    child: TitleAndSubtitle(title: "signIn", subTitle: "Hi! Welcome back, you've been missed")),
+                    child: TitleAndSubtitle(title: "sign In", subTitle: "Hi! Welcome back, you've been missed")),
                 CustomTextFormField(label: "Email", icon: Icons.email_sharp, hint: 'example@gmail.com', getInfo: email),
                 CustomTextFormField(label: "Password", icon: Icons.visibility_off, hint: '***************', getInfo: password),
                 Align(

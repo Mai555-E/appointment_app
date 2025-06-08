@@ -1,8 +1,9 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
+
 import '../../resources/app_colors.dart';
 import '../../resources/routes.dart';
-import 'package:flutter/material.dart';
 
 class ConfirmationScreen extends StatefulWidget {
   const ConfirmationScreen({super.key});

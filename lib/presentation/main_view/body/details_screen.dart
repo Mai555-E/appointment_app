@@ -1,15 +1,16 @@
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-import '../../resources/routes.dart';
+import '../../../data/model/doctor_model.dart';
+import '../../../domain/provider/my_provider.dart';
 import '../../resources/app_colors.dart';
-import '../../../domain/model/my_provider.dart';
-import '../widgets/body_widgets/details_card.dart';
+import '../../resources/routes.dart';
 import '../widgets/body_widgets/custom_position_widgets.dart';
+import '../widgets/body_widgets/details_card.dart';
 
 class DetailsScreen extends StatelessWidget {
-  final Map<String, dynamic> doctors;
+  final DoctorModel doctors;
   const DetailsScreen({super.key, required this.doctors});
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class DetailsScreen extends StatelessWidget {
             spacing: 20,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              CircleAvatar(radius: 60, backgroundImage: AssetImage(doctors['image'])),
+              CircleAvatar(radius: 60, backgroundImage: AssetImage(doctors.image)),
               CustomPositionWidgets(doctors: doctors),
               SizedBox(
                   height: 130,
@@ -38,9 +39,9 @@ class DetailsScreen extends StatelessWidget {
               SizedBox(height: MediaQuery.sizeOf(context).height / 3.5, child: _buildInfoWidget(context)),
               ElevatedButton(
                   onPressed: () => {
-                        docList.getDoctorName(doctors['name']),
-                        docList.getDoctorField(doctors['specialization']),
-                        docList.getDoctorDeposit(doctors['price']),
+                        docList.getDoctorName(doctors.name),
+                        docList.getDoctorField(doctors.specialization),
+                        docList.getDoctorDeposit(doctors.price),
                         Get.toNamed(NamedRoutes.bookingAppointment)
                       },
                   child: Text("Booking Appointment"))
@@ -54,13 +55,13 @@ class DetailsScreen extends StatelessWidget {
   Widget _buildInfoWidget(BuildContext context) {
     return Column(spacing: 5, crossAxisAlignment: CrossAxisAlignment.start, children: [
       Text("About", style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500)),
-      Text(doctors['bio']),
+      Text(doctors.bio),
       Spacer(),
       Text("Availability", style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500)),
-      Text(doctors['working_days']),
+      Text(doctors.working_days),
       Spacer(),
       Text("Consultation fee", style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500)),
-      Text('${doctors['price']} EGP')
+      Text('${doctors.price} EGP')
     ]);
   }
 }

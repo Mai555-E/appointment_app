@@ -1,27 +1,24 @@
-import 'package:doctor_appointment_app/domain/notification/local_notification_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart' as dot;
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'app/app.dart';
-import 'domain/model/my_provider.dart';
+import 'domain/provider/my_provider.dart';
+import 'domain/notification/local_notification_service.dart';
 import 'domain/strip_payment/payment_keys.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // EasyLocalization.logger.enableLevels = []; // to remove logger
-  // await EasyLocalization.ensureInitialized();
-
-  // await GetStorage.init();
-
-  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  await Hive.openBox("Profile_data");
   await Firebase.initializeApp();
- await LocalNotificationService.init();
+  await LocalNotificationService.init();
   Stripe.publishableKey = PaymentKeys.publishedKey;
   FirebaseMessaging messaging = FirebaseMessaging.instance;
   NotificationSettings settings = await messaging.requestPermission();

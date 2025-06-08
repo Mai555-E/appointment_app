@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../auth/profile/profile.dart';
 import '../resources/app_colors.dart';
 import '../resources/app_constants.dart';
-import 'booking/appointment_screen.dart';
 import 'body/my_whish_list.dart';
+import 'booking/appointment_screen.dart';
 import 'home/home_page.dart';
-import '../auth/profile/profile.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});

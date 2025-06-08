@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../data/model/doctor_model.dart';
 import '../../body/details_screen.dart';
 
 class CustomWishListCard
  extends StatelessWidget {
   final String image, name, subtitle, available, star;
-  final Map<String, dynamic> doctorDetails;
+  final DoctorModel doctorDetails;
   const CustomWishListCard
 (
       {super.key,
