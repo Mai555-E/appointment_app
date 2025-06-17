@@ -1,5 +1,5 @@
+import 'package:doctor_appointment_app/presentation/resources/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../../data/model/doctor_model.dart';
 import '../../body/details_screen.dart';
@@ -36,7 +36,7 @@ class CustomWishListCard
             Text(available, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w300), textAlign: TextAlign.center),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: ElevatedButton(onPressed: () => Get.to(() => DetailsScreen(doctors: doctorDetails)), child: const Text("Appointment")),
+              child: ElevatedButton(onPressed: () => Navigator.pushNamed(context,NamedRoutes.detailsScreen, arguments: doctorDetails ), child: const Text("Appointment")),
             )
           ],
         ),

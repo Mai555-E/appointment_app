@@ -8,7 +8,6 @@ class Validation {
     if (val.isNotEmpty) {
       switch (fieldName.toLowerCase()) {
         case "username":
-          print(val);
           return (!usernameRegex.hasMatch(val)) ? 'Enter valid username' : null;
 
         case "password":

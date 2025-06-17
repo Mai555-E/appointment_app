@@ -42,7 +42,7 @@ class DetailsScreen extends StatelessWidget {
                         docList.getDoctorName(doctors.name),
                         docList.getDoctorField(doctors.specialization),
                         docList.getDoctorDeposit(doctors.price),
-                        Get.toNamed(NamedRoutes.bookingAppointment)
+                       Navigator.pushNamed(context, NamedRoutes.bookingAppointment)
                       },
                   child: Text("Booking Appointment"))
             ],

@@ -18,7 +18,7 @@ class _ConfirmationScreenState extends State<ConfirmationScreen> {
   @override
   void dispose() => {_timer.cancel(), super.dispose()};
 
-  void navigateTo() => Navigator.pushNamedAndRemoveUntil(context, NamedRoutes.mainView, (Route<dynamic> route) => false);
+  void navigateTo() => Navigator.pushReplacementNamed(context, NamedRoutes.mainView);
 
   void _startTime() => _timer = _timer = Timer(Duration(seconds: 1),()=> navigateTo());
   @override

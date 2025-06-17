@@ -12,9 +12,9 @@ class ECommerceApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       //
-      getPages: RouteGenerator.getRoute(),
+      
+      onGenerateRoute: RouteGenerator.getRoute,
      initialRoute: NamedRoutes.splash,
-//home: TestScreen(),
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: AppTheme.currentMode,

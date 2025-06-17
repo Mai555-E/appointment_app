@@ -12,7 +12,7 @@ class CarouselSliderWithDots extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox.fromSize(
-      size: const Size.fromHeight(210), // CarouselSlider with Dots
+      size: const Size.fromHeight(210),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -23,7 +23,7 @@ class CarouselSliderWithDots extends StatelessWidget {
                 return Column(
                   children: [
                     Container(
-                      height: 190, // CarouselSlider Height
+                      height: 190,
                       margin: const EdgeInsets.symmetric(horizontal: 17),
                       decoration: const BoxDecoration(color: Color(0xff9bb3dc), borderRadius: BorderRadius.all(Radius.circular(10))),
                       child: Row(
@@ -36,14 +36,10 @@ class CarouselSliderWithDots extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  // Title
                                   Text(AppConstants.carouselSliderData[index].title,
                                       style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: AppColors.white)),
-                                  // SubTitle
                                   Text(AppConstants.carouselSliderData[index].subTitle,
                                       style: TextStyle(fontSize: 15, color: Colors.white)),
-                                  // Button
-
                                   SizedBox.fromSize(
                                       size: const Size(115, 36),
                                       child: ElevatedButton(

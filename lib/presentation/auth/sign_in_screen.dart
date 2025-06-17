@@ -13,7 +13,7 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  late final email, password;
+  late final TextEditingController email, password;
   final formKey = GlobalKey<FormState>();
 
   @override

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../resources/app_colors.dart';
@@ -14,8 +13,8 @@ class SupabaseAuth {
       final response = await _supabase.auth.signUp(email: email, password: password, data: {'first_name': username});
 
       if (response.user != null) {
-        Get.toNamed(NamedRoutes.signInScreen);
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Sign up success"), backgroundColor: AppColors.thirdColor,));
+        Navigator.pushNamed(context, NamedRoutes.signInScreen);
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Sign up success"), backgroundColor: AppColors.thirdColor));
       }
     } on AuthException {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("sign up Failed")));
@@ -29,18 +28,15 @@ class SupabaseAuth {
       final response = await _supabase.auth.signInWithPassword(email: email, password: password);
 
       if (response.user != null) {
-        Get.offNamed(NamedRoutes.mainView);
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("login success") , backgroundColor: AppColors.thirdColor));
+        Navigator.pushReplacementNamed(context, NamedRoutes.mainView);
+
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("login success"), backgroundColor: AppColors.thirdColor));
       }
     } on AuthException catch (e) {
       print(e.message);
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("login Failed , check your password or email")));
-
-     
     } catch (e) {
       print(e);
     }
   }
 }
-
-

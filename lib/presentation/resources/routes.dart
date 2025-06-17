@@ -1,21 +1,22 @@
-import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 
+import '../../data/model/doctor_model.dart';
+import '../auth/profile/profile.dart';
 import '../auth/sign_in_screen.dart';
 import '../auth/sign_up_screen.dart';
-import '../main_view/main_view.dart';
-import '../auth/profile/profile.dart';
-import '../splash_screen/splash_screen.dart';
 import '../main_view/body/details_screen.dart';
 import '../main_view/body/my_whish_list.dart';
 import '../main_view/booking/appointment_screen.dart';
-import '../main_view/booking/confirmation_screen.dart';
 import '../main_view/booking/booking_appointment_screen.dart';
+import '../main_view/booking/confirmation_screen.dart';
+import '../main_view/main_view.dart';
+import '../splash_screen/splash_screen.dart';
 
 class NamedRoutes {
   NamedRoutes._();
 
   static const String home = '/';
-  
+
   //splash
   static const String splash = '/splash';
 
@@ -40,24 +41,47 @@ class NamedRoutes {
 }
 
 class RouteGenerator {
-  static List<GetPage> getRoute() {
-    return [
-      // Authentication
-      GetPage(name: NamedRoutes.signInScreen, page: () => const SignInScreen()),
-      GetPage(name: NamedRoutes.signUpScreen, page: () => const SignUpScreen()),
+  static Route<dynamic> getRoute(RouteSettings settings) {
+    // final arg = settings.arguments as DoctorModel;
+    switch (settings.name) {
+      case NamedRoutes.splash:
+        return MaterialPageRoute(builder: (_) => SplashScreen());
       //
-      GetPage(name: NamedRoutes.profilePage, page: () => ProfileScreen()),
+      case NamedRoutes.signInScreen:
+        return MaterialPageRoute(builder: (_) => SignInScreen());
+      case NamedRoutes.signUpScreen:
+        return MaterialPageRoute(builder: (_) => SignUpScreen());
+      case NamedRoutes.confirm:
+        return MaterialPageRoute(builder: (_) => ConfirmationScreen());
+      case NamedRoutes.profilePage:
+        return MaterialPageRoute(builder: (_) => ProfileScreen());
       //
-      GetPage(name: NamedRoutes.splash, page: () => const SplashScreen()),
 
-      //
-      GetPage(name: NamedRoutes.mainView, page: () => const MainView()),
-      GetPage(name: NamedRoutes.detailsScreen, page: () => DetailsScreen(doctors: Get.arguments)),
-      //
-      GetPage(name: NamedRoutes.confirm, page: () => ConfirmationScreen()),
-      GetPage(name: NamedRoutes.appointment, page: () => AppointmentScreen()),
-      GetPage(name: NamedRoutes.myWhishList, page: () => const MyWhishListPage()),
-      GetPage(name: NamedRoutes.bookingAppointment, page: () => BookingAppointmentScreen())
-    ];
+      case NamedRoutes.mainView:
+        return MaterialPageRoute(builder: (_) => MainView());
+
+      case NamedRoutes.detailsScreen:
+        if (settings.arguments is DoctorModel) {
+          final doctor = settings.arguments as DoctorModel;
+          return MaterialPageRoute(builder: (_) => DetailsScreen(doctors: doctor));
+        } else
+          return MaterialPageRoute(
+              builder: (_) => Center(child: Text(" No page found", style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700))));
+
+      case NamedRoutes.appointment:
+        return MaterialPageRoute(builder: (_) => AppointmentScreen());
+
+//
+      case NamedRoutes.myWhishList:
+        return MaterialPageRoute(builder: (_) => MyWhishListPage());
+      case NamedRoutes.bookingAppointment:
+        return MaterialPageRoute(builder: (_) => BookingAppointmentScreen());
+
+      default:
+        return MaterialPageRoute(
+            builder: (_) => Center(
+                  child: Text(" No page found", style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700)),
+                ));
+    }
   }
 }

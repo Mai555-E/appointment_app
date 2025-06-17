@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import '../../body/my_whish_list.dart';
+import '../../../resources/routes.dart';
 
 class CustomCategoryTile extends StatelessWidget {
   final String title, subTitle;
@@ -16,7 +15,7 @@ class CustomCategoryTile extends StatelessWidget {
         children: [
           Text(title, style: TextStyle(fontSize: 23, fontWeight: FontWeight.w500)),
           TextButton(
-              onPressed: () => (subTitle == "See All") ? Get.to(() =>MyWhishListPage ()) : null,
+              onPressed: () => (subTitle == "See All") ?Navigator.pushNamed(context, NamedRoutes.myWhishList) : null,
               style: TextButton.styleFrom(alignment: Alignment.centerRight, textStyle: const TextStyle(decoration: TextDecoration.none)),
               child: Text(subTitle, style: TextStyle(fontSize: 15)))
         ],

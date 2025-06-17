@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../data/model/doctor_model.dart';
@@ -39,7 +38,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
               onTap: () {
                 searchController.closeView(doc.name);
                 searchController.clear();
-                Get.to(() => DetailsScreen(doctors: doc));
+                Navigator.push(context, MaterialPageRoute(builder:(_)=> DetailsScreen(doctors: doc)));
               },
             );
           }).toList();

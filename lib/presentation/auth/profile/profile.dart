@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../domain/provider/my_provider.dart';
+import '../../resources/app_assets.dart';
 import '../../resources/app_colors.dart';
 import '../../widgets/leading_app_bar.dart';
 
@@ -13,11 +14,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  late final TextEditingController name;
-  late final TextEditingController email;
-  late final TextEditingController phone;
-  late final TextEditingController location;
-  late final TextEditingController username;
+  late final TextEditingController name, email, phone, location, username;
 
   @override
   void dispose() => {name.dispose(), email.dispose(), username.dispose(), location.dispose(), super.dispose()};
@@ -43,7 +40,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: Column(
             spacing: 35,
             children: [
-              _buildTextAndAvatar(data.userEmail!),
+              _buildTextAndAvatar(data.userEmail ?? "mai123@gmail.com"),
               TextFormField(controller: name, decoration: InputDecoration(label: Text("Named:"), hintText: data.username)),
               TextFormField(controller: email, decoration: InputDecoration(label: Text("Email:"), hintText: data.userEmail)),
               TextFormField(controller: phone, decoration: InputDecoration(label: Text("Phone:"), hintText: data.userPhone)),
@@ -57,7 +54,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Column _buildTextAndAvatar(String email) {
     return Column(spacing: 5, children: [
-      CircleAvatar(radius: 55, backgroundImage: AssetImage("assets/images/1.png")),
+      CircleAvatar(radius: 55, backgroundImage: AssetImage(AppAssets.doctor1)),
       Text(email, style: TextStyle(color: AppColors.grey))
     ]);
   }
