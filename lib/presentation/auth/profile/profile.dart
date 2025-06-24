@@ -45,6 +45,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               spacing: 35,
               children: [
                 _buildTextAndAvatar(data.userEmail ?? "anas123@gmail.com"),
+
+                
                 ProfileTextFormField(hint: "anas", label: "Named:", controller: name),
                 ProfileTextFormField(hint: "anas123@gmail.com", label: "Email:", controller: email),
                 ProfileTextFormField(hint: "0123456789", label: "Phone:", controller: phone),
