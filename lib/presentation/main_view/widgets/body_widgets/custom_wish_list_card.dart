@@ -2,7 +2,6 @@ import 'package:doctor_appointment_app/presentation/resources/routes.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../data/model/doctor_model.dart';
-import '../../body/details_screen.dart';
 
 class CustomWishListCard
  extends StatelessWidget {

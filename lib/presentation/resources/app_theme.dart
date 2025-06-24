@@ -31,7 +31,7 @@ class AppTheme {
            
             borderRadius: BorderRadius.all(Radius.circular(18)), borderSide: BorderSide(color: AppColors.white, width: .5)),
         focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(15)), borderSide: BorderSide(color: AppColors.grey, width: .5)),
+            borderRadius: BorderRadius.all(Radius.circular(15)), borderSide: BorderSide(color: AppColors.primary, width: .5)),
       ),
 
       // ElevatedButton

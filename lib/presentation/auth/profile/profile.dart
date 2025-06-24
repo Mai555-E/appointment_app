@@ -1,3 +1,5 @@
+import 'package:doctor_appointment_app/presentation/auth/profile/profile_validation.dart';
+import 'package:doctor_appointment_app/presentation/resources/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +17,7 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   late final TextEditingController name, email, phone, location, username;
-
+  final form = GlobalKey<FormState>();
   @override
   void dispose() => {name.dispose(), email.dispose(), username.dispose(), location.dispose(), super.dispose()};
 
@@ -37,15 +39,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
-          child: Column(
-            spacing: 35,
-            children: [
-              _buildTextAndAvatar(data.userEmail ?? "mai123@gmail.com"),
-              TextFormField(controller: name, decoration: InputDecoration(label: Text("Named:"), hintText: data.username)),
-              TextFormField(controller: email, decoration: InputDecoration(label: Text("Email:"), hintText: data.userEmail)),
-              TextFormField(controller: phone, decoration: InputDecoration(label: Text("Phone:"), hintText: data.userPhone)),
-              TextFormField(controller: location, decoration: InputDecoration(label: Text("Location:"), hintText: location.text)),
-            ],
+          child: Form(
+            key: form,
+            child: Column(
+              spacing: 35,
+              children: [
+                _buildTextAndAvatar(data.userEmail ?? "anas123@gmail.com"),
+                ProfileTextFormField(hint: "anas", label: "Named:", controller: name),
+                ProfileTextFormField(hint: "anas123@gmail.com", label: "Email:", controller: email),
+                ProfileTextFormField(hint: "0123456789", label: "Phone:", controller: phone),
+                ProfileTextFormField(hint: "Cairo", label: "Location:", controller: location),
+                ElevatedButton(
+                    onPressed: () async {
+                      if (form.currentState!.validate()) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Data saved successfully"), backgroundColor: AppColors.thirdColor,));
+                        Navigator.popAndPushNamed(context, NamedRoutes.mainView);
+                      }
+                    },
+                    child: Text("Save"))
+              ],
+            ),
           ),
         ),
       ),

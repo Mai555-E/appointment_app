@@ -64,9 +64,10 @@ class RouteGenerator {
         if (settings.arguments is DoctorModel) {
           final doctor = settings.arguments as DoctorModel;
           return MaterialPageRoute(builder: (_) => DetailsScreen(doctors: doctor));
-        } else
+        } else {
           return MaterialPageRoute(
               builder: (_) => Center(child: Text(" No page found", style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700))));
+        }
 
       case NamedRoutes.appointment:
         return MaterialPageRoute(builder: (_) => AppointmentScreen());
