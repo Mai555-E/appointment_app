@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../data/model/doctor_model.dart';
 
@@ -18,6 +21,19 @@ class MyProvider extends ChangeNotifier {
 
   //
 
+  File? _imageFile;
+  final ImagePicker _imagePicker = ImagePicker();
+
+  File? get imageFile => _imageFile;
+  Future<void> pickedImage() async {
+    final picked = await _imagePicker.pickImage(source: ImageSource.gallery);
+    if (picked != null) {
+      _imageFile = File(picked.path);
+      notifyListeners();
+    }
+  }
+
+//
   void changeDateTime({DateTime? selectedDate, DateTime? focusedDate}) {
     focusDate = focusedDate;
     selectDate = selectedDate;

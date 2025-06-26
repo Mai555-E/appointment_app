@@ -1,12 +1,12 @@
-import 'package:doctor_appointment_app/presentation/auth/profile/profile_validation.dart';
-import 'package:doctor_appointment_app/presentation/resources/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../domain/provider/my_provider.dart';
 import '../../resources/app_assets.dart';
 import '../../resources/app_colors.dart';
+import '../../resources/routes.dart';
 import '../../widgets/leading_app_bar.dart';
+import 'profile_validation.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -45,8 +45,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               spacing: 35,
               children: [
                 _buildTextAndAvatar(data.userEmail ?? "anas123@gmail.com"),
-
-                
                 ProfileTextFormField(hint: "anas", label: "Named:", controller: name),
                 ProfileTextFormField(hint: "anas123@gmail.com", label: "Email:", controller: email),
                 ProfileTextFormField(hint: "0123456789", label: "Phone:", controller: phone),
@@ -54,7 +52,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ElevatedButton(
                     onPressed: () async {
                       if (form.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Data saved successfully"), backgroundColor: AppColors.thirdColor,));
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text("Data saved successfully"),
+                          backgroundColor: AppColors.thirdColor,
+                        ));
                         Navigator.popAndPushNamed(context, NamedRoutes.mainView);
                       }
                     },
@@ -67,10 +68,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  Column _buildTextAndAvatar(String email) {
-    return Column(spacing: 5, children: [
-      CircleAvatar(radius: 55, backgroundImage: AssetImage(AppAssets.doctor1)),
-      Text(email, style: TextStyle(color: AppColors.grey))
-    ]);
+  Widget _buildTextAndAvatar(String email) {
+    var imageProvider = Provider.of<MyProvider>(context);
+    var image = imageProvider.imageFile;
+    return Consumer<MyProvider>(
+      builder: (context, value, child) => Stack(children: [
+        CircleAvatar(radius: 75, backgroundImage: (value.imageFile != null) ? FileImage(value.imageFile!) : AssetImage(AppAssets.doctor1)),
+        Positioned(
+            bottom: 0,
+            right: 0,
+            child: IconButton.filled(
+                onPressed: () => value.pickedImage(),
+                icon: Icon(Icons.edit, size: 18),
+                style: ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(AppColors.primary), maximumSize: WidgetStatePropertyAll(Size.fromRadius(20))))),
+        Text(email, style: TextStyle(color: AppColors.grey))
+      ]),
+    );
   }
 }

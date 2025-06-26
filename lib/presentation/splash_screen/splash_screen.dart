@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   late Timer _timer;
   @override
   void dispose() => {_timer.cancel(), super.dispose()};
-  void navigateTo() => Navigator.pushReplacementNamed(context, NamedRoutes.signInScreen);
+  void navigateTo() => Navigator.pushReplacementNamed(context, NamedRoutes.onboarding);
   void startTime() => _timer = Timer(Duration(milliseconds: 1500), () => navigateTo());
   @override
   void initState() => {startTime(), super.initState()};

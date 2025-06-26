@@ -8,8 +8,8 @@ import 'domain/provider/my_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  await initializerServices();
+ await Initialization.initializerServices();
+   
 
   await dot.dotenv.load(fileName: '.env');
   runApp(MultiProvider(providers: [

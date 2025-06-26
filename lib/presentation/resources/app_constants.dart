@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'app_assets.dart';
+
 class AppConstants {
   static const List<String> doctorsImages = [
     "assets/images/1.png",
@@ -10,6 +12,11 @@ class AppConstants {
     "assets/images/1.png"
   ];
 
+  static const List<({String image, String title})> onboardingImages = [
+    (image: AppAssets.onboardingDoc1, title: "Best Doctor Appointment Mobile App"),
+    (image: AppAssets.onboardingDoc2, title: " Get E, Prescription from a Doctor"),
+    (image: AppAssets.onboardingDoc3, title: "Best Medicine Reminder")
+  ];
 //payment
 
   static const PaymentIcons paymentIcons = [
