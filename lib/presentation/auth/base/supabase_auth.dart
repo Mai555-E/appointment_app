@@ -13,6 +13,7 @@ class SupabaseAuth {
       final response = await _supabase.auth.signUp(email: email, password: password, data: {'first_name': username});
 
       if (response.user != null) {
+        
         Navigator.pushNamed(context, NamedRoutes.signInScreen);
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Sign up success"), backgroundColor: AppColors.thirdColor));
       }

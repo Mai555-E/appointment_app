@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../resources/app_assets.dart';
 import '../../resources/routes.dart';
@@ -69,7 +68,7 @@ class HaveAnAccount extends StatelessWidget {
         Text("${isSignIn ? "Don't" : "Already"} have an account?"),
         TextButton(
           child: Text(isSignIn ? "Sign Up" : "Sign In"),
-          onPressed: () => Get.toNamed(isSignIn ? NamedRoutes.signUpScreen : NamedRoutes.signInScreen),
+          onPressed: () => Navigator.pushReplacementNamed( context, isSignIn ? NamedRoutes.signUpScreen : NamedRoutes.signInScreen),
         ),
       ],
     );

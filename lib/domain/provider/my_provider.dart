@@ -20,7 +20,13 @@ class MyProvider extends ChangeNotifier {
   late String? username = '', userEmail = '', userPhone = '';
 
   //
+  bool? saveLogged;
+  //
 
+  bool get getSavedLogged => saveLogged ?? false;
+  void setSavedLogged(bool logged) => {saveLogged = logged, notifyListeners()};
+
+//
   File? _imageFile;
   final ImagePicker _imagePicker = ImagePicker();
 
@@ -31,6 +37,15 @@ class MyProvider extends ChangeNotifier {
       _imageFile = File(picked.path);
       notifyListeners();
     }
+  }
+
+//
+//----> switch button
+  bool value = false;
+  bool get switchValue => value;
+  void changeSwitchValue(bool val) {
+    value = val;
+    notifyListeners();
   }
 
 //
@@ -76,6 +91,10 @@ class MyProvider extends ChangeNotifier {
   }
 
 //
+
+  String? get clientName => username;
+  String? get clientEmail => userEmail;
+  String? get clientPhone => userPhone;
   void getUserInfo(String userName, String email, String phone) {
     username = userName;
     userEmail = email;

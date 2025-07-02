@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import '../../domain/provider/my_provider.dart';
+import '../../domain/shared_preferences/my_shared_preferences.dart';
 import '../widgets/widgets.dart';
 import 'base/auth_widgets.dart';
 import 'base/supabase_auth.dart';
@@ -52,8 +50,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ElevatedButton(
                     onPressed: () async {
                       if (formKey.currentState!.validate()) {
-                        context.read<MyProvider>().getUserInfo(userName.text, email.text, phone.text);
+                        // context.read<MyProvider>().getUserInfo(userName.text, email.text, phone.text);
+
                         await SupabaseAuth.signUp(email: email.text, password: password.text, username: userName.text, context: context);
+                        MySharedPreferences.saveSignUpData(username: userName.text, email: email.text, phone: phone.text);
                       }
                     },
                     child: const Text("Sign Up")),

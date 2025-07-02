@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../base/validation.dart';
+import '../../auth/base/validation.dart';
 
 class ProfileTextFormField extends StatefulWidget {
   final String hint, label;
@@ -16,7 +16,9 @@ class _ProfileTextFormFieldState extends State<ProfileTextFormField> {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: widget.controller,
-      decoration: InputDecoration(hintText: widget.hint, labelText: widget.label),
+      decoration: InputDecoration(hintText: widget.hint,
+      hintStyle: TextStyle(fontWeight: FontWeight.w300),
+       labelText: widget.label),
       validator: (val) => Validation.validate(val: val!, fieldName: widget.label),
     );
   }

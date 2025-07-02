@@ -27,6 +27,7 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text("Location", style: TextStyle(color: Colors.grey)),
+                
                   LocationAndNotification(),
                   const SizedBox(height: 10),
                  SizedBox(width: 350,  child: CustomSearchBar())

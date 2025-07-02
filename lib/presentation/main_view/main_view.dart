@@ -1,6 +1,6 @@
+import 'package:doctor_appointment_app/presentation/setting/setting_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../auth/profile/profile.dart';
 import '../resources/app_colors.dart';
 import '../resources/app_constants.dart';
 import 'body/my_whish_list.dart';
@@ -24,7 +24,7 @@ class _MainViewState extends State<MainView> {
     const HomePage(),
     const MyWhishListPage(),
     const AppointmentScreen(),
-    const ProfileScreen()
+    const SettingScreen()
   ];
 
   @override

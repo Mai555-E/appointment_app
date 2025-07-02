@@ -11,7 +11,7 @@ class AppConstants {
     "assets/images/4.png",
     "assets/images/1.png"
   ];
-
+//
   static const List<({String image, String title})> onboardingImages = [
     (image: AppAssets.onboardingDoc1, title: "Best Doctor Appointment Mobile App"),
     (image: AppAssets.onboardingDoc2, title: " Get E, Prescription from a Doctor"),
@@ -106,7 +106,7 @@ class AppConstants {
     'North Sinai',
     'South Sinai'
   ].map((location) => "$location, Egypt").toList();
-
+//
   static const CarouselSliderData carouselSliderData = [
     (images: "assets/images/1.png", title: "Stay at home", subTitle: "Take care of your mental healthy "),
     (images: "assets/images/2.png", title: "Take care", subTitle: "Take care of your mental healthy  "),
@@ -114,7 +114,7 @@ class AppConstants {
     (images: "assets/images/4.png", title: "Stay at home", subTitle: "Take care of your mental healthy "),
     (images: "", title: "", subTitle: " ")
   ];
-
+//
   static final NavigationData navigationData = [
     (icon: Icons.home_outlined, iconFilled: Icons.home_filled),
     (icon: Icons.notifications, iconFilled: Icons.notifications),
@@ -122,10 +122,28 @@ class AppConstants {
     (icon: Icons.calendar_month, iconFilled: Icons.calendar_month_rounded),
     (icon: Icons.person_pin, iconFilled: Icons.person_pin)
   ];
+
+
+
+
+  static const SettingData  settingData = [
+  (title: "Notification", icon: Icons.notifications),
+  (title: "My Appointment", icon: Icons.book_online_rounded),
+  (title: "Payment", icon: Icons.payment_rounded),
+  (title: "Language", icon: Icons.language_rounded),
+   (title: "Support", icon: Icons.support_agent),
+    (title: "Logout", icon: Icons.logout)
+];
 }
 
+
+
+
+
+//
 typedef Locations = List<String>;
 typedef DoctorsImages = List<String>;
+typedef SettingData = List<({String title, IconData icon})>;
 typedef TimeSlots = List<({String time})>;
 typedef DoctorNamedSuggestion = List<String>;
 typedef PaymentIcons = List<({IconData icon})>;

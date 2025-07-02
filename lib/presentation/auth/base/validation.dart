@@ -1,5 +1,5 @@
 class Validation {
-  static final phoneRegExp = RegExp(r'^\+?[0-9]{13,15}$');
+  static final phoneRegExp = RegExp(r'^\+?[0-9]{11,15}$');
 static  final  nameRegExp = RegExp(r"^[a-zA-Z\s'-]{2,50}$");
   static final usernameRegex = RegExp(r'^[a-zA-Z0-9_]{4,20}$');
 

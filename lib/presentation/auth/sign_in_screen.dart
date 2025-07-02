@@ -1,3 +1,4 @@
+import 'package:doctor_appointment_app/domain/shared_preferences/shared_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../resources/app_colors.dart';
@@ -44,6 +45,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     onPressed: () async {
                       if (formKey.currentState!.validate()) {
                         await SupabaseAuth.signIn(email: email.text, password: password.text, context: context);
+                        await SharedAuth.saveLoginStatus();
                       }
                     },
                     child: const Text("Sign In")),

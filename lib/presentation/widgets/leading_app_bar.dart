@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class LeadingAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
@@ -11,13 +10,12 @@ class LeadingAppBar extends StatelessWidget implements PreferredSizeWidget {
       leadingWidth: 80,
       title: title != null ? Text(title!) : null,
       leading: IconButton.outlined(
-        onPressed: Get.back,
-        icon: const Icon(Icons.arrow_back_ios_new_rounded),
-        style: IconButton.styleFrom(fixedSize: const Size.square(10)),
-      ),
+          onPressed: () => Navigator.pop(context),
+          icon: const Icon(Icons.arrow_back_ios_new_rounded),
+          style: IconButton.styleFrom(fixedSize: const Size.square(10))),
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(56); // Default AppBar height
+  Size get preferredSize => const Size.fromHeight(56);
 }
