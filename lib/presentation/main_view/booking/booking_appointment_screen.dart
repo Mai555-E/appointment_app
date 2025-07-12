@@ -33,11 +33,13 @@ class BookingAppointmentScreen extends StatelessWidget {
                     child: ElevatedButton(
                         onPressed: () async {
                           SavingAppointment.saveAppointment(
+                            context,
                               context.read<MyProvider>().selected!,
                               context.read<MyProvider>().focusDate!.toIso8601String(),
                               provider.doctorName!,
                               provider.doctorField!,
                               provider.price!);
+                         
                         },
                         child: Text("set appointment"))),
               ],

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../data/model/doctor_model.dart';
 import '../auth/sign_in_screen.dart';
 import '../auth/sign_up_screen.dart';
+import '../main_view/appointments/my_appointments.dart';
 import '../main_view/body/details_screen.dart';
 import '../main_view/body/my_whish_list.dart';
 import '../main_view/booking/appointment_screen.dart';
@@ -27,7 +28,8 @@ class NamedRoutes {
   static const String signInScreen = "/signInScreen";
   static const String signUpScreen = "/signUpScreen";
 
-//payment
+//appointment
+  static const String myAppointment = '/myAppointment';
 
   //
   static const String mainView = "/mainView";
@@ -53,6 +55,10 @@ class RouteGenerator {
       //
       case NamedRoutes.signInScreen:
         return MaterialPageRoute(builder: (_) => SignInScreen());
+
+     //
+      case NamedRoutes.myAppointment:
+        return MaterialPageRoute(builder: (_) => MyAppointmentsScreen());
       //
       case NamedRoutes.signUpScreen:
         return MaterialPageRoute(builder: (_) => SignUpScreen());

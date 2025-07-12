@@ -49,7 +49,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ProfileTextFormField(hint:MySharedPreferences.getUserName, label: "Named:", controller: name),
                 ProfileTextFormField(hint: MySharedPreferences.getUserEmail, label: "Email:", controller: email),
                 ProfileTextFormField(hint:  MySharedPreferences.getUserPhone, label: "Phone:", controller: phone),
-                ProfileTextFormField(hint: "Cairo", label: "Location:", controller: location),
+                ProfileTextFormField(hint: MySharedPreferences.getUserLocation, label: "Location:", controller: location),
                 ElevatedButton(
                     onPressed: () async {
                       if (form.currentState!.validate()) {

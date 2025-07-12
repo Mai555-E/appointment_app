@@ -3,6 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 class MySharedPreferences {
   static late SharedPreferences pref;
   static String keyName = 'name';
+  static String usernameKey = 'username';
+
   static String emailKey = "email";
   static String phoneKey = "phone";
   static String keyLocation = 'location';
@@ -29,14 +31,15 @@ class MySharedPreferences {
   static String get getUserEmail => pref.getString("email") ?? "Anas@gmail.com";
 
   static String get getUserPhone => pref.getString("phone") ?? "0123456789";
+  static String get getUserLocation => pref.getString(keyLocation)?? "cairo";
 
   static Future<bool> saveProfileData(
       {required String name, required String email, required String phone, required String location, required String username}) async {
     try {
-    await  pref.setString(keyName, name);
-    await  pref.setString('email', email);
-    await  pref.setString('username', username);
-    await  pref.setString('phone', phone);
+      await pref.setString(keyName, name);
+      await pref.setString(emailKey, email);
+      await pref.setString(usernameKey, username);
+      await pref.setString(phoneKey, phone);
 
       pref.setString(keyLocation, location);
       return true;
@@ -47,6 +50,7 @@ class MySharedPreferences {
   }
 
   static Future<void> logout() async {
+    await initializeShared();
     await pref.remove(keyName);
     await pref.remove(keyLocation);
     await pref.remove(phoneKey);

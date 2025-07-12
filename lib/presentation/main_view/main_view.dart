@@ -1,8 +1,9 @@
-import 'package:doctor_appointment_app/presentation/setting/setting_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../resources/app_colors.dart';
 import '../resources/app_constants.dart';
+import '../setting/setting_screen.dart';
+import 'appointments/my_appointments.dart';
 import 'body/my_whish_list.dart';
 import 'booking/appointment_screen.dart';
 import 'home/home_page.dart';
@@ -21,7 +22,7 @@ class _MainViewState extends State<MainView> {
 
   static final List<Widget> _pages = [
     const HomePage(),
-    const HomePage(),
+    const MyAppointmentsScreen(),
     const MyWhishListPage(),
     const AppointmentScreen(),
     const SettingScreen()

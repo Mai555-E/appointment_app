@@ -2,16 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../domain/provider/my_provider.dart';
+import '../../domain/shared_preferences/my_shared_preferences.dart';
+import '../../domain/shared_preferences/shared_auth.dart';
 import '../resources/app_colors.dart';
 import '../resources/app_constants.dart';
 import '../widgets/leading_app_bar.dart';
+import 'base/setting_validation.dart';
 import 'widgets/custom_user_info.dart';
 
-class SettingScreen extends StatelessWidget {
+class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
-  static bool isChange = false;
 
   @override
+  State<SettingScreen> createState() => _SettingScreenState();
+}
+
+class _SettingScreenState extends State<SettingScreen> {
+  @override
+  void initState() => {MySharedPreferences.initializeShared(), SharedAuth.initShared(), super.initState()};
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,9 +54,11 @@ class SettingScreen extends StatelessWidget {
             }));
   }
 
-  ListTile _buildListTile(BuildContext context, {required String title, required IconData icon}) {
+  Widget _buildListTile(BuildContext context, {required String title, required IconData icon}) {
     return ListTile(
-        onTap: () {},
+        onTap: () async {
+          await SettingValidation.validation(title, context);
+        },
         leading: Container(
             width: 50,
             height: 45,

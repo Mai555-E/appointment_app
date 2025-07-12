@@ -1,6 +1,7 @@
 class DoctorModel {
   late final String price;
   late final int id;
+  late final String reviews;
   late final String bio;
   late final String name;
   late final String image;
@@ -12,6 +13,7 @@ class DoctorModel {
       required this.specialization,
       required this.bio,
       required this.id,
+      required this.reviews,
       required this.image,
       required this.price,
       required this.working_days});
@@ -23,8 +25,8 @@ class DoctorModel {
         name: json["name"],
         image: json["image"],
         price: json["price"],
+        reviews: json['review'],
         working_days: json["working_days"],
-        specialization: json["specialization"]
-        );
+        specialization: json["specialization"]);
   }
 }

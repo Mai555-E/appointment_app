@@ -14,17 +14,13 @@ class MyProvider extends ChangeNotifier {
   //
   late DateTime? focusDate = DateTime.now();
   late DateTime? selectDate = DateTime.now();
-  late String? doctorName = '', doctorField = '';
+  late String? doctorName = '', doctorField = '', doctorReview = '';
 //
   late List<DoctorModel> _doctor = [];
   late String? username = '', userEmail = '', userPhone = '';
 
   //
   bool? saveLogged;
-  //
-
-  bool get getSavedLogged => saveLogged ?? false;
-  void setSavedLogged(bool logged) => {saveLogged = logged, notifyListeners()};
 
 //
   File? _imageFile;
@@ -43,70 +39,39 @@ class MyProvider extends ChangeNotifier {
 //----> switch button
   bool value = false;
   bool get switchValue => value;
-  void changeSwitchValue(bool val) {
-    value = val;
-    notifyListeners();
-  }
+  void changeSwitchValue(bool val) => {value = val, notifyListeners()};
 
 //
-  void changeDateTime({DateTime? selectedDate, DateTime? focusedDate}) {
-    focusDate = focusedDate;
-    selectDate = selectedDate;
-
-    notifyListeners();
-  }
+  void changeDateTime({DateTime? selectedDate, DateTime? focusedDate}) =>
+      {focusDate = focusedDate, selectDate = selectedDate, notifyListeners()};
 
 //
-  void changeIcon() {
-    icons = icons == Icons.visibility ? Icons.visibility_off_outlined : Icons.visibility;
-    obscure = !obscure;
-    notifyListeners();
-  }
+  void changeIcon() =>
+      {icons = icons == Icons.visibility ? Icons.visibility_off_outlined : Icons.visibility, obscure = !obscure, notifyListeners()};
 
 //
-  void choiceTime(String choice) {
-    selected = choice;
-    notifyListeners();
-  }
+  void choiceTime(String choice) => {selected = choice, notifyListeners()};
 
 //
-  void getDoctorName(String? name) {
-    doctorName = name;
+  void getDoctorName(String? name) => {doctorName = name, notifyListeners()};
 
-    notifyListeners();
-  }
-
-//
-  void getDoctorField(String? field) {
-    doctorField = field;
-
-    notifyListeners();
-  }
+  String? get getDoctorReview => doctorReview;
+  void setDoctorReview(String review) => {doctorReview = review, notifyListeners()};
 
 //
-  void getDoctorDeposit(String? deposit) {
-    price = int.parse(deposit!);
-
-    notifyListeners();
-  }
+  void getDoctorField(String? field) => {doctorField = field, notifyListeners()};
 
 //
+  void getDoctorDeposit(String? deposit) => {price = int.parse(deposit!), notifyListeners()};
 
+//
   String? get clientName => username;
   String? get clientEmail => userEmail;
   String? get clientPhone => userPhone;
-  void getUserInfo(String userName, String email, String phone) {
-    username = userName;
-    userEmail = email;
-    userPhone = phone;
-
-    notifyListeners();
-  }
+  void getUserInfo(String userName, String email, String phone) =>
+      {username = userName, userEmail = email, userPhone = phone, notifyListeners()};
   //
 
   List<DoctorModel> get doctors => _doctor;
-  void setDoctorModelData(List<DoctorModel> newDoctor) {
-    _doctor = newDoctor;
-    notifyListeners();
-  }
+  void setDoctorModelData(List<DoctorModel> newDoctor) => {_doctor = newDoctor, notifyListeners()};
 }

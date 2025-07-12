@@ -33,6 +33,7 @@ class _ConfirmationScreenState extends State<ConfirmationScreen> {
           children: [
             Icon(Icons.check_circle, color: AppColors.primary, size: 160),
             Text("Confirmation success", style: TextStyle(fontSize: 35))
+            
           ],
         ),
       ),
